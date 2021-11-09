@@ -1,0 +1,77 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktikum Minggu 3</title>
+</head>
+
+<body>
+    <script>
+        function changeTheme() {
+            let option = document.getElementById("theme");
+
+            if (option.options[option.selectedIndex].value == "black") {
+                document.body.style.background = "black";
+                document.body.style.color = "white";
+            }
+            else if (option.options[option.selectedIndex].value == "white") {
+                document.body.style.background = "white";
+                document.body.style.color = "black";
+            }
+            else {
+                document.body.style.background = "white";
+                document.body.style.color = "black";
+            }
+        }
+
+        function changeWeather() {
+            let option = document.getElementById("chooseWeather");
+
+            if (option.options[option.selectedIndex].value == "sunny") {
+                document.getElementById("weather").innerHTML = "It is nice and sunny outside today. Wear shorts! Goto the beach, or park, and get an ice cream";
+            }
+            else if (option.options[option.selectedIndex].value == "rainy") {
+                document.getElementById("weather").innerHTML = "Rain is falling outside, take a rain coat and a brolly, and don't stay out for too long";
+            }
+            else {
+                document.getElementById("weather").innerHTML = "";
+            }
+        }
+
+        function factorial() {
+            var number = document.getElementById("getNumber");
+            var result = 1;
+            for (var i = 1; i <= number.value; i++) {
+                result = result * i;
+            }
+            document.getElementById("result").innerHTML = `The factorial of ${number.value} is ${result} `;
+        }
+    </script>
+
+    <label for="theme">Select Theme:</label>
+    <select name="theme" id="theme" onchange="changeTheme()">
+        <option value="white">White</option>
+        <option value="black">Black</option>
+    </select>
+
+    <h1>This is my WEBSITE</h1>
+
+    <label for="chooseWeather">Select the weather type today:</label>
+    <select name="chooseWeather" id="chooseWeather" onchange="changeWeather()">
+        <option value="sunny">Sunny</option>
+        <option value="rainy">Rainy</option>
+    </select>
+
+    <p id="weather"></p>
+
+    <label for="getNumber">Input number:</label>
+    <input type="text" id="getNumber" name="getNumber">
+    <button onclick="factorial()">Get Factorial</button>
+
+    <p id="result"></p>
+
+</body>
+
+</html>
